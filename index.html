@@ -152,6 +152,121 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-settings-py文件配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/17/settings-py%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE/">settings.py文件配置</a>
+    </h1>
+  
+
+        
+        <a href="/2021/02/17/settings-py%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE/" class="archive-article-date">
+  	<time datetime="2021-02-17T07:42:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="1-BASE-DIR"><a href="#1-BASE-DIR" class="headerlink" title="1) BASE_DIR"></a>1) BASE_DIR</h5><p>它用于绑定当前项目 BookStore 所在的绝对路径，项目中的所有的文件都需要依赖此路径，绑定路径的方法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BASE_DIR = Path(__file__).resolve().parent.parent</span><br></pre></td></tr></table></figure>
+<p><code>__file__</code>是 Python 的语法，显示当前文件的位置，<code>Path(__file__).resolve().parent.parent</code> 方法返回当前文件的绝对路径。</p>
+<h5 id="2-SECRET-KEY"><a href="#2-SECRET-KEY" class="headerlink" title="2) SECRET_KEY"></a>2) SECRET_KEY</h5><p>这个变量的本质是一个加密的盐，它一般配合加密算法 Hash、MD5 一起使用。例如用户密码的加密或者建立会话时用到的 sessionid 都需要用到 SECRET_KEY 。在实际的开发工作中，一般将它保存在系统的环境变量中以确保加密盐的安全。</p>
+<h5 id="3-DEBUG"><a href="#3-DEBUG" class="headerlink" title="3) DEBUG"></a>3) DEBUG</h5><p>用于配置 Django 项目的启用模式，有两种取值方式：</p>
+<ul>
+<li><p>DEBUG = True用于在开发环境中使用，属于调试模式，在项目的运行过程中会暴露一些错误信息以方便调试。</p>
+</li>
+<li><p>DEBUG = False用于线上环境，表示不启用调试模式。</p>
+<p>一般在线下测试的时候会开启DEBUG = True 来进行调试，发布线上之前需要设置为DEBUG = False</p>
+</li>
+</ul>
+<h5 id="4-ALLOWED-HOSTS"><a href="#4-ALLOWED-HOSTS" class="headerlink" title="4) ALLOWED_HOSTS"></a>4) ALLOWED_HOSTS</h5><p>用于配置能够访问当前站点的域名（IP地址），当 DEBUG = False 时，必须填写，有以下三种使用方法：</p>
+<ul>
+<li>[]，空列表,表示只有127.0.0.1，localhost能访问本项目；</li>
+<li>[‘*’]，表示任何网络地址都能访问到当前项目；</li>
+<li>[‘192.168.1.3’, ‘192.168.3.3’] 表示只有当前两个主机能访问当前项目。</li>
+</ul>
+<p>提示：如果是在局域网，让其它主机也能访问此站点，应使用 ALLOWED_HOSTS=[‘*’] 的方式。</p>
+<h5 id="5-INSTALLED-APPS"><a href="#5-INSTALLED-APPS" class="headerlink" title="5) INSTALLED_APPS"></a>5) INSTALLED_APPS</h5><p>这个参数是指当前项目中用来安装的应用（APP）的列表，Django 把默认自带的应用放在这个列表里，比如 Admin 后台应用、Auth 用户管理系统等，前面我们也对这两个模块做了相应的介绍，在 Django 中把它们称之为“应用”。</p>
+<p>我们可以根据自己的项目需求对其进行增加或删除，比如公司要单独开发一个后台管理系统，就可以把第一项 admin 注释掉。开发时自己编写的应用都必须在这个变量表中进行注册才能生效。所以这个列表需要经常的改动。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">&#x27;django.contrib.admin&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.auth&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.contenttypes&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.sessions&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.messages&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.staticfiles&#x27;</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h5 id="6-MIDDLEWARE"><a href="#6-MIDDLEWARE" class="headerlink" title="6) MIDDLEWARE"></a>6) MIDDLEWARE</h5><p>它用于注册中间件，Django 默认加载了一些中间件。例如，用于处理会话的 SessionMiddleware 等，同样我们可以对这些中间件进行添加或者注释。参考：<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/7379.html">http://c.biancheng.net/view/7379.html</a></p>
+<h5 id="7-ROOT-URLCONF"><a href="#7-ROOT-URLCONF" class="headerlink" title="7) ROOT_URLCONF"></a>7) ROOT_URLCONF</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ROOT_URLCONF = <span class="string">&#x27;BookStore.urls&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>它指定了当前项目的根 URL，是 Django 路由系统的入口。</p>
+<h5 id="8-TEMPLATES"><a href="#8-TEMPLATES" class="headerlink" title="8) TEMPLATES"></a>8) TEMPLATES</h5><p>它用于指定模板的配置信息，列表中每一元素都是一个字典。如下所示是 Django 默认自带模板引擎：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;BACKEND&#x27;</span>: <span class="string">&#x27;django.template.backends.django.DjangoTemplates&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;DIRS&#x27;</span>: [BASE_DIR / <span class="string">&#x27;templates&#x27;</span>]</span><br><span class="line">        ,</span><br><span class="line">        <span class="string">&#x27;APP_DIRS&#x27;</span>: <span class="literal">True</span>,</span><br><span class="line">        <span class="string">&#x27;OPTIONS&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;context_processors&#x27;</span>: [</span><br><span class="line">                <span class="string">&#x27;django.template.context_processors.debug&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.template.context_processors.request&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.contrib.auth.context_processors.auth&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.contrib.messages.context_processors.messages&#x27;</span>,</span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h5 id="9-WSGI-APPLICATION"><a href="#9-WSGI-APPLICATION" class="headerlink" title="9) WSGI_APPLICATION"></a>9) WSGI_APPLICATION</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WSGI_APPLICATION = <span class="string">&#x27;djangoProject.wsgi.application&#x27;</span></span><br></pre></td></tr></table></figure>
+<h5 id="10-DATABASES"><a href="#10-DATABASES" class="headerlink" title="10) DATABASES"></a>10) DATABASES</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">&#x27;default&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;ENGINE&#x27;</span>: <span class="string">&#x27;django.db.backends.sqlite3&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;NAME&#x27;</span>: BASE_DIR / <span class="string">&#x27;db.sqlite3&#x27;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它用于指定数据库配置信息，这里默认配置的是 Django 自带的 sqllite3 数据库。Django 支持多种数据库，在这个字典变量中更改数据库配置。</p>
+<h5 id="11-AUTH-PASSWORD-VALIDATORS"><a href="#11-AUTH-PASSWORD-VALIDATORS" class="headerlink" title="11)AUTH_PASSWORD_VALIDATORS"></a>11)AUTH_PASSWORD_VALIDATORS</h5><p>这是一个支持插拔的密码验证器，且可以一次性配置多个，Django 通过这些内置组件来避免用户设置的密码等级不足的问题。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">AUTH_PASSWORD_VALIDATORS = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;NAME&#x27;</span>: <span class="string">&#x27;django.contrib.auth.password_validation.UserAttributeSimilarityValidator&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;NAME&#x27;</span>: <span class="string">&#x27;django.contrib.auth.password_validation.MinimumLengthValidator&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;NAME&#x27;</span>: <span class="string">&#x27;django.contrib.auth.password_validation.CommonPasswordValidator&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;NAME&#x27;</span>: <span class="string">&#x27;django.contrib.auth.password_validation.NumericPasswordValidator&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h5 id="12-LANGUAGE-CODE和TIME-ZONE"><a href="#12-LANGUAGE-CODE和TIME-ZONE" class="headerlink" title="12) LANGUAGE_CODE和TIME_ZONE"></a>12) LANGUAGE_CODE和TIME_ZONE</h5><p>分别代表语言配置项和当前服务端时区的配置项，我们常用的配置如下所示：</p>
+<ul>
+<li>LANGUAGE_CODE 取值是英文：’en-us’或者中文：’zh-Hans’；</li>
+<li>TIME_ZONE 取值是世界时区 ‘UTC’ 或中国时区 ‘Asia/Shanghai’。</li>
+</ul>
+<h5 id="13-USE-118N和USE-L10N"><a href="#13-USE-118N和USE-L10N" class="headerlink" title="13) USE_118N和USE_L10N"></a>13) USE_118N和USE_L10N</h5><p>项目开发完成后，可以选择向不同国家的用户提供服务，那么就需要支持国际化和本地化。USE_118N 和 USE_L10N 这两个变量值表示是否需要开启国际化和本地化功能。默认开启的状态。</p>
+<p>提示：USE_I18N = True 与 USE_L10N = True 其的 I18N 指的是国际化英文缩写，L10N 指的是本地化英文缩写。</p>
+<h5 id="14-USE-TZ-True"><a href="#14-USE-TZ-True" class="headerlink" title="14) USE_TZ=True"></a>14) USE_TZ=True</h5><p>它指对时区的处理方式，当设置为 True 的时候，存储到数据库的时间是世界时间 ‘UTC’。</p>
+<h5 id="15-STATIC-URL-‘-static-‘"><a href="#15-STATIC-URL-‘-static-‘" class="headerlink" title="15) STATIC_URL= ‘/static/‘"></a>15) STATIC_URL= ‘/static/‘</h5><p>它指的是静态资源的存放位置，静态资源包括 CSS、JS、Images。比如我们要在项目中添加一些图片，通常这些静态图片被存放在新建的 static 目录下，这样就实现了通过 STATIC_URL= ‘/static/‘ 路径对静态资源的访问。</p>
+<p>以上就是对于 settings.py 配置文件的详细介绍。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Django学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/02/17/settings-py%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hexo搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -421,6 +536,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Django学习</a>
               </li>
             
             <div class="clearfix"></div>
