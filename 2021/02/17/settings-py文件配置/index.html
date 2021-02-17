@@ -1,15 +1,154 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="settings.py文件配置"><meta name="keywords" content="Django学习"><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><title>settings.py文件配置 | Hexo</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
-  },
-  hexoVersion: '5.3.0'
-} </script><meta name="generator" content="Hexo 5.3.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-BASE-DIR"><span class="toc-number">1.</span> <span class="toc-text">1) BASE_DIR</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-SECRET-KEY"><span class="toc-number">2.</span> <span class="toc-text">2) SECRET_KEY</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-DEBUG"><span class="toc-number">3.</span> <span class="toc-text">3) DEBUG</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-ALLOWED-HOSTS"><span class="toc-number">4.</span> <span class="toc-text">4) ALLOWED_HOSTS</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-INSTALLED-APPS"><span class="toc-number">5.</span> <span class="toc-text">5) INSTALLED_APPS</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-MIDDLEWARE"><span class="toc-number">6.</span> <span class="toc-text">6) MIDDLEWARE</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-ROOT-URLCONF"><span class="toc-number">7.</span> <span class="toc-text">7) ROOT_URLCONF</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-TEMPLATES"><span class="toc-number">8.</span> <span class="toc-text">8) TEMPLATES</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-WSGI-APPLICATION"><span class="toc-number">9.</span> <span class="toc-text">9) WSGI_APPLICATION</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#10-DATABASES"><span class="toc-number">10.</span> <span class="toc-text">10) DATABASES</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#11-AUTH-PASSWORD-VALIDATORS"><span class="toc-number">11.</span> <span class="toc-text">11)AUTH_PASSWORD_VALIDATORS</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#12-LANGUAGE-CODE%E5%92%8CTIME-ZONE"><span class="toc-number">12.</span> <span class="toc-text">12) LANGUAGE_CODE和TIME_ZONE</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#13-USE-118N%E5%92%8CUSE-L10N"><span class="toc-number">13.</span> <span class="toc-text">13) USE_118N和USE_L10N</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#14-USE-TZ-True"><span class="toc-number">14.</span> <span class="toc-text">14) USE_TZ&#x3D;True</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#15-STATIC-URL-%E2%80%98-static-%E2%80%98"><span class="toc-number">15.</span> <span class="toc-text">15) STATIC_URL&#x3D; ‘&#x2F;static&#x2F;‘</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">John Doe</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">3</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">2</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Hexo</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right"></span></div><div id="post-info"><div id="post-title">settings.py文件配置</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-17</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h5 id="1-BASE-DIR"><a href="#1-BASE-DIR" class="headerlink" title="1) BASE_DIR"></a>1) BASE_DIR</h5><p>它用于绑定当前项目 BookStore 所在的绝对路径，项目中的所有的文件都需要依赖此路径，绑定路径的方法如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BASE_DIR = Path(__file__).resolve().parent.parent</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  
+  <title>settings.py文件配置 - Hexo</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta name="description" content="必须知道的setting.py文件配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="settings.py文件配置">
+<meta property="og:url" content="http://example.com/2021/02/17/settings-py%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="必须知道的setting.py文件配置">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-17T07:42:17.000Z">
+<meta property="article:modified_time" content="2021-02-17T08:13:06.543Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Django学习">
+<meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1613549834889">
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="John Doe" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="John Doe"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="John Doe">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="John Doe" alt="John Doe">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>2</div>
+        <div><span>Tags</span>2</div>
+        <div><span>Categories</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+            <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+        </form>
+    </div>
+</div>
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=5CfKHun" target="_blank" mdui-tooltip="{content: 'QQ群'}" style="color: rgb(249, 174, 8);background-color: rgba(249, 174, 8, .1);">
+            <i class="nexmoefont icon-QQ"></i>
+        </a><a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Django%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">Django学习</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+    </div>
+    
+  </div>
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2021 John Doe
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+          <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="settings.py文件配置" class="lazyload">
+          <h1>settings.py文件配置</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2021年02月17日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1,223 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 5 分钟</a>
+</div>
+
+  <div class="nexmoe-post-right">
+    
+  </div>
+
+  <article>
+    <p>必须知道的setting.py文件配置</p>
+<a id="more"></a>
+
+<h5 id="1-BASE-DIR"><a href="#1-BASE-DIR" class="headerlink" title="1) BASE_DIR"></a>1) BASE_DIR</h5><p>它用于绑定当前项目 BookStore 所在的绝对路径，项目中的所有的文件都需要依赖此路径，绑定路径的方法如下：</p>
+<pre><code class="python">BASE_DIR = Path(__file__).resolve().parent.parent
+</code></pre>
 <p><code>__file__</code>是 Python 的语法，显示当前文件的位置，<code>Path(__file__).resolve().parent.parent</code> 方法返回当前文件的绝对路径。</p>
 <h5 id="2-SECRET-KEY"><a href="#2-SECRET-KEY" class="headerlink" title="2) SECRET_KEY"></a>2) SECRET_KEY</h5><p>这个变量的本质是一个加密的盐，它一般配合加密算法 Hash、MD5 一起使用。例如用户密码的加密或者建立会话时用到的 sessionid 都需要用到 SECRET_KEY 。在实际的开发工作中，一般将它保存在系统的环境变量中以确保加密盐的安全。</p>
 <h5 id="3-DEBUG"><a href="#3-DEBUG" class="headerlink" title="3) DEBUG"></a>3) DEBUG</h5><p>用于配置 Django 项目的启用模式，有两种取值方式：</p>
@@ -29,17 +168,63 @@
 <p>提示：如果是在局域网，让其它主机也能访问此站点，应使用 ALLOWED_HOSTS=[‘*’] 的方式。</p>
 <h5 id="5-INSTALLED-APPS"><a href="#5-INSTALLED-APPS" class="headerlink" title="5) INSTALLED_APPS"></a>5) INSTALLED_APPS</h5><p>这个参数是指当前项目中用来安装的应用（APP）的列表，Django 把默认自带的应用放在这个列表里，比如 Admin 后台应用、Auth 用户管理系统等，前面我们也对这两个模块做了相应的介绍，在 Django 中把它们称之为“应用”。</p>
 <p>我们可以根据自己的项目需求对其进行增加或删除，比如公司要单独开发一个后台管理系统，就可以把第一项 admin 注释掉。开发时自己编写的应用都必须在这个变量表中进行注册才能生效。所以这个列表需要经常的改动。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">&#x27;django.contrib.admin&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.auth&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.contenttypes&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.sessions&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.messages&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.staticfiles&#x27;</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<pre><code class="python">INSTALLED_APPS = [
+    &#39;django.contrib.admin&#39;,
+    &#39;django.contrib.auth&#39;,
+    &#39;django.contrib.contenttypes&#39;,
+    &#39;django.contrib.sessions&#39;,
+    &#39;django.contrib.messages&#39;,
+    &#39;django.contrib.staticfiles&#39;,
+]
+</code></pre>
 <h5 id="6-MIDDLEWARE"><a href="#6-MIDDLEWARE" class="headerlink" title="6) MIDDLEWARE"></a>6) MIDDLEWARE</h5><p>它用于注册中间件，Django 默认加载了一些中间件。例如，用于处理会话的 SessionMiddleware 等，同样我们可以对这些中间件进行添加或者注释。参考：<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/7379.html">http://c.biancheng.net/view/7379.html</a></p>
-<h5 id="7-ROOT-URLCONF"><a href="#7-ROOT-URLCONF" class="headerlink" title="7) ROOT_URLCONF"></a>7) ROOT_URLCONF</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ROOT_URLCONF = <span class="string">&#x27;BookStore.urls&#x27;</span></span><br></pre></td></tr></table></figure>
+<h5 id="7-ROOT-URLCONF"><a href="#7-ROOT-URLCONF" class="headerlink" title="7) ROOT_URLCONF"></a>7) ROOT_URLCONF</h5><pre><code class="python">ROOT_URLCONF = &#39;BookStore.urls&#39;
+</code></pre>
 <p>它指定了当前项目的根 URL，是 Django 路由系统的入口。</p>
 <h5 id="8-TEMPLATES"><a href="#8-TEMPLATES" class="headerlink" title="8) TEMPLATES"></a>8) TEMPLATES</h5><p>它用于指定模板的配置信息，列表中每一元素都是一个字典。如下所示是 Django 默认自带模板引擎：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;BACKEND&#x27;</span>: <span class="string">&#x27;django.template.backends.django.DjangoTemplates&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;DIRS&#x27;</span>: [BASE_DIR / <span class="string">&#x27;templates&#x27;</span>]</span><br><span class="line">        ,</span><br><span class="line">        <span class="string">&#x27;APP_DIRS&#x27;</span>: <span class="literal">True</span>,</span><br><span class="line">        <span class="string">&#x27;OPTIONS&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;context_processors&#x27;</span>: [</span><br><span class="line">                <span class="string">&#x27;django.template.context_processors.debug&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.template.context_processors.request&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.contrib.auth.context_processors.auth&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.contrib.messages.context_processors.messages&#x27;</span>,</span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h5 id="9-WSGI-APPLICATION"><a href="#9-WSGI-APPLICATION" class="headerlink" title="9) WSGI_APPLICATION"></a>9) WSGI_APPLICATION</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WSGI_APPLICATION = <span class="string">&#x27;djangoProject.wsgi.application&#x27;</span></span><br></pre></td></tr></table></figure>
-<h5 id="10-DATABASES"><a href="#10-DATABASES" class="headerlink" title="10) DATABASES"></a>10) DATABASES</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">&#x27;default&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;ENGINE&#x27;</span>: <span class="string">&#x27;django.db.backends.sqlite3&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;NAME&#x27;</span>: BASE_DIR / <span class="string">&#x27;db.sqlite3&#x27;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="python">TEMPLATES = [
+    &#123;
+        &#39;BACKEND&#39;: &#39;django.template.backends.django.DjangoTemplates&#39;,
+        &#39;DIRS&#39;: [BASE_DIR / &#39;templates&#39;]
+        ,
+        &#39;APP_DIRS&#39;: True,
+        &#39;OPTIONS&#39;: &#123;
+            &#39;context_processors&#39;: [
+                &#39;django.template.context_processors.debug&#39;,
+                &#39;django.template.context_processors.request&#39;,
+                &#39;django.contrib.auth.context_processors.auth&#39;,
+                &#39;django.contrib.messages.context_processors.messages&#39;,
+            ],
+        &#125;,
+    &#125;,
+]
+</code></pre>
+<h5 id="9-WSGI-APPLICATION"><a href="#9-WSGI-APPLICATION" class="headerlink" title="9) WSGI_APPLICATION"></a>9) WSGI_APPLICATION</h5><pre><code class="python">WSGI_APPLICATION = &#39;djangoProject.wsgi.application&#39;
+</code></pre>
+<h5 id="10-DATABASES"><a href="#10-DATABASES" class="headerlink" title="10) DATABASES"></a>10) DATABASES</h5><pre><code class="python">DATABASES = &#123;
+    &#39;default&#39;: &#123;
+        &#39;ENGINE&#39;: &#39;django.db.backends.sqlite3&#39;,
+        &#39;NAME&#39;: BASE_DIR / &#39;db.sqlite3&#39;,
+    &#125;
+&#125;
+</code></pre>
 <p>它用于指定数据库配置信息，这里默认配置的是 Django 自带的 sqllite3 数据库。Django 支持多种数据库，在这个字典变量中更改数据库配置。</p>
 <h5 id="11-AUTH-PASSWORD-VALIDATORS"><a href="#11-AUTH-PASSWORD-VALIDATORS" class="headerlink" title="11)AUTH_PASSWORD_VALIDATORS"></a>11)AUTH_PASSWORD_VALIDATORS</h5><p>这是一个支持插拔的密码验证器，且可以一次性配置多个，Django 通过这些内置组件来避免用户设置的密码等级不足的问题。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">AUTH_PASSWORD_VALIDATORS = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;NAME&#x27;</span>: <span class="string">&#x27;django.contrib.auth.password_validation.UserAttributeSimilarityValidator&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;NAME&#x27;</span>: <span class="string">&#x27;django.contrib.auth.password_validation.MinimumLengthValidator&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;NAME&#x27;</span>: <span class="string">&#x27;django.contrib.auth.password_validation.CommonPasswordValidator&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;NAME&#x27;</span>: <span class="string">&#x27;django.contrib.auth.password_validation.NumericPasswordValidator&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<pre><code class="python">AUTH_PASSWORD_VALIDATORS = [
+    &#123;
+        &#39;NAME&#39;: &#39;django.contrib.auth.password_validation.UserAttributeSimilarityValidator&#39;,
+    &#125;,
+    &#123;
+        &#39;NAME&#39;: &#39;django.contrib.auth.password_validation.MinimumLengthValidator&#39;,
+    &#125;,
+    &#123;
+        &#39;NAME&#39;: &#39;django.contrib.auth.password_validation.CommonPasswordValidator&#39;,
+    &#125;,
+    &#123;
+        &#39;NAME&#39;: &#39;django.contrib.auth.password_validation.NumericPasswordValidator&#39;,
+    &#125;,
+]
+</code></pre>
 <h5 id="12-LANGUAGE-CODE和TIME-ZONE"><a href="#12-LANGUAGE-CODE和TIME-ZONE" class="headerlink" title="12) LANGUAGE_CODE和TIME_ZONE"></a>12) LANGUAGE_CODE和TIME_ZONE</h5><p>分别代表语言配置项和当前服务端时区的配置项，我们常用的配置如下所示：</p>
 <ul>
 <li>LANGUAGE_CODE 取值是英文：’en-us’或者中文：’zh-Hans’；</li>
@@ -50,8 +235,79 @@
 <h5 id="14-USE-TZ-True"><a href="#14-USE-TZ-True" class="headerlink" title="14) USE_TZ=True"></a>14) USE_TZ=True</h5><p>它指对时区的处理方式，当设置为 True 的时候，存储到数据库的时间是世界时间 ‘UTC’。</p>
 <h5 id="15-STATIC-URL-‘-static-‘"><a href="#15-STATIC-URL-‘-static-‘" class="headerlink" title="15) STATIC_URL= ‘/static/‘"></a>15) STATIC_URL= ‘/static/‘</h5><p>它指的是静态资源的存放位置，静态资源包括 CSS、JS、Images。比如我们要在项目中添加一些图片，通常这些静态图片被存放在新建的 static 目录下，这样就实现了通过 STATIC_URL= ‘/static/‘ 路径对静态资源的访问。</p>
 <p>以上就是对于 settings.py 配置文件的详细介绍。</p>
-</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2021/02/17/settings-py文件配置/">http://example.com/2021/02/17/settings-py文件配置/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Django%E5%AD%A6%E4%B9%A0/">Django学习</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2021/02/17/hexo%E6%90%AD%E5%BB%BA/"><span>hexo搭建</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By John Doe</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
-  $('#nav').addClass('is-mobile')
-  $('footer').addClass('is-mobile')
-  $('#top-container').addClass('is-mobile')
-}</script></body></html>
+
+  </article>
+
+  
+    
+  <div class="nexmoe-post-copyright">
+    <strong>Author：</strong>John Doe<br>
+    <strong>Link：</strong><a href="http://example.com/2021/02/17/settings-py%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE/" title="http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;02&#x2F;17&#x2F;settings-py%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;02&#x2F;17&#x2F;settings-py%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE&#x2F;</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Django%E5%AD%A6%E4%B9%A0/" rel="tag">Django学习</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+  </div>
+</div>
+        <div class="nexmoe-post-right">
+          
+        </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+ <script src="/js/app.js?v=1613549834891"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+<script>
+	$(".justified-gallery").justifiedGallery({
+		rowHeight: 160,
+		margins: 10,
+	});
+</script>
+
+  
+
+
+
+
+
+</body>
+
+</html>
